@@ -1,0 +1,23 @@
+{
+  "name": "domain2lmdb",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bun run start.ts",
+    "postinstall": "LMDB_DATA_V1=true ENABLE_V8_FUNCTIONS=false node-gyp rebuild --directory node_modules/lmdb",
+    "typecheck": "bun check"
+  },
+  "dependencies": {
+    "lmdb": "3.5.9",
+    "node-gyp": "12.4.0"
+  },
+  "patchedDependencies": {
+    "lmdb@3.5.9": "patches/lmdb@3.5.9.patch"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  }
+}
